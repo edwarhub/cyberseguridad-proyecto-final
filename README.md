@@ -1,4 +1,4 @@
 # cyberseguridad-proyecto-final
-Universidad Nacional de Colombia
-Edwar A. Rojas Blanco
+Universidad Nacional de Colombia.<br/>
+Edwar A. Rojas Blanco<br/>
 2019 - I
