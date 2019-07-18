@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../_template.xhtml">
+
+            <ui:define name="app.admin.informex.form.content">
+                <div align="center">
+
+                    <h:form>
+                        <p:panelGrid columns="2">
+
+                            <h:panelGroup>
+                                <h:outputText value="Desde" styleClass="label"/>
+                                <span class="oblig">*</span>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <p:calendar autocomplete="off" id="desde_" required="true" requiredMessage="Requerido!" value="#{informexControl1.desde}" pattern="yyyy-MM-dd"/>
+                                <p:messages for="desde_"/>
+                            </h:panelGroup>
+
+                            <h:panelGroup>
+                                <h:outputText value="Hasta" styleClass="label"/>
+                                <span class="oblig">*</span>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <p:calendar autocomplete="off" id="hasta_" required="true" requiredMessage="Requerido!" value="#{informexControl1.hasta}" pattern="yyyy-MM-dd"/>
+                                <p:messages for="hasta_"/>
+                            </h:panelGroup>
+
+
+                        </p:panelGrid>
+                        <br/><br/>
+                        <p:commandButton icon="fa fa-play" value="Generar Informe" action="#{informexControl1.generarInforme(utilControl.informexKeyUser())}" ajax="false">
+                            <f:param name="idinforme_" value="#{param.idinforme_}"/>
+                        </p:commandButton>
+                        <h:outputText value="#{informexListControl.setSuccessful(informexControl1.successful)}"/>
+                        <br/><br/>
+                    </h:form>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

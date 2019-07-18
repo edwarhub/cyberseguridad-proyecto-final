@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../_templateBlank.xhtml">
+
+            <ui:define name="app-admin.contentBlank">
+
+                <h:outputText escape="false" value="#{seguridadControl.validaPermisoAdmin}"/>
+
+                <div align="center">
+                    <h4>Agregar Usuario</h4>
+                    <h:form>
+                        <p:panelGrid columns="2">
+                            <h:outputText styleClass="label" value="Usuario"/>
+                            <h:panelGroup>
+                                <i style="color:gray;font-size: 11px">Login / Nombre / No. Documento</i><br/>
+                                <p:autoComplete value="#{informexPermisoControl.usSel}" id="atr_idusuario" completeMethod="#{usuarioControl.listAutocomplete}"  
+                                                styleClass="autocomplete_"  var="objU" itemLabel="#{objU.idpersona.nombres} #{objU.idpersona.apellidos}  #{objU.username} " itemValue="#{objU}" forceSelection="true"
+                                                size="40" required="true" requiredMessage="Requerido !"/>  
+                                <p:message for="atr_idusuario"/>
+                            </h:panelGroup>
+                        </p:panelGrid>
+                        <br/>
+                        <h:panelGroup>
+                            <div align="center">
+                                <p:commandButton ajax="false" icon="ui-icon-plusthick" value="Agregar Usuario" action="#{informexPermisoControl.agregarUsuario}">
+                                    <f:param name="idinforme_" value="#{param.idinforme_}"/>
+                                </p:commandButton>
+                            </div>
+                        </h:panelGroup>
+                    </h:form>
+
+                    <h:panelGrid rendered="#{informexPermisoControl.successful}">
+                        <script>setTimeout("parent.document.location.href='#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/lista.xhtml?idinforme_=#{param.idinforme_}';", 500);</script>
+                    </h:panelGrid>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

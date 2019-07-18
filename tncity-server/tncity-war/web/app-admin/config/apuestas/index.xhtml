@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="app-admin.config.content">
+
+                <p:panel header="Configuración de Progresivo/Apuestas">
+
+                    <div align="center">
+                        <a href="javascript:void();" class="fa fa-edit" onclick="$.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/config/apuestas/editar.xhtml', iframe: true, title: 'Configurar', transition: 'fade', width: '75%', height: '95%'});">
+                            Editar
+                        </a>
+                        <br/><br/><br/>
+
+                        <h:outputText value="#{configControl.setObjApuestaConfig(configControl.config(configControl.objApuestaConfig))}"/>
+
+                        <b>Progresivos de RECARGA</b>
+                        <p:separator/>
+                        <p:panelGrid columns="2">
+                            <h:outputText styleClass="label" value="Menor:"/>
+                            <h:panelGroup>
+                                <h:outputText value="#{progresivoControl.setObj(null)}"/>
+                                <h:outputText value="#{progresivoControl.recuperaByIdLong(configControl.objApuestaConfig.progresivoRecargaMenor.idprogresivo)}"/>  
+                                <a href="#{utilControl.protocolHostPortContext}/app-admin/apuestas/progresivo/detalle/detalle.xhtml?idprogresivo_=#{progresivoControl.obj.idprogresivo}">
+                                    <h:outputText value="#{progresivoControl.obj.nombre}"/>
+                                </a>
+                                <h:panelGroup>
+                                    <div align="right">
+                                        <h:outputText style="color:gray" value="Inactivo" rendered="#{!configControl.objApuestaConfig.progresivoRecargaMenor.activo}"/>
+                                        <h:outputText style="color:green" value="Activo" rendered="#{configControl.objApuestaConfig.progresivoRecargaMenor.activo}"/>
+                                    </div>    
+                                </h:panelGroup>
+                            </h:panelGroup>
+
+                            <h:outputText styleClass="label" value="Mayor:"/>
+                            <h:panelGroup>
+                                <h:outputText value="#{progresivoControl.setObj(null)}"/>
+                                <h:outputText value="#{progresivoControl.recuperaByIdLong(configControl.objApuestaConfig.progresivoRecargaMayor.idprogresivo)}"/>  
+                                <a href="#{utilControl.protocolHostPortContext}/app-admin/apuestas/progresivo/detalle/detalle.xhtml?idprogresivo_=#{progresivoControl.obj.idprogresivo}">
+                                    <h:outputText value="#{progresivoControl.obj.nombre}"/>
+                                </a>
+                                <h:panelGroup>
+                                    <div align="right">
+                                        <h:outputText style="color:gray" value="Inactivo" rendered="#{!configControl.objApuestaConfig.progresivoRecargaMayor.activo}"/>
+                                        <h:outputText style="color:green" value="Activo" rendered="#{configControl.objApuestaConfig.progresivoRecargaMayor.activo}"/>
+                                    </div>    
+                                </h:panelGroup>
+                            </h:panelGroup>
+                        </p:panelGrid>
+
+                        <br/><br/>
+                        <b>Progresivos de APUESTA</b>
+                        <p:separator/>
+                        <p:panelGrid columns="2">
+                            <h:outputText styleClass="label" value="Menor:"/>
+                            <h:panelGroup>
+                                <h:outputText value="#{progresivoControl.setObj(null)}"/>
+                                <h:outputText value="#{progresivoControl.recuperaByIdLong(configControl.objApuestaConfig.progresivoApuestaMenor.idprogresivo)}"/>  
+                                <a href="#{utilControl.protocolHostPortContext}/app-admin/apuestas/progresivo/detalle/detalle.xhtml?idprogresivo_=#{progresivoControl.obj.idprogresivo}">
+                                    <h:outputText value="#{progresivoControl.obj.nombre}"/>
+                                </a>
+                                <h:panelGroup>
+                                    <div align="right">
+                                        <h:outputText style="color:gray" value="Inactivo" rendered="#{!configControl.objApuestaConfig.progresivoApuestaMenor.activo}"/>
+                                        <h:outputText style="color:green" value="Activo" rendered="#{configControl.objApuestaConfig.progresivoApuestaMenor.activo}"/>
+                                    </div>    
+                                </h:panelGroup>
+                            </h:panelGroup>
+
+                            <h:outputText styleClass="label" value="Menor:"/>
+                            <h:panelGroup>
+                                <h:outputText value="#{progresivoControl.setObj(null)}"/>
+                                <h:outputText value="#{progresivoControl.recuperaByIdLong(configControl.objApuestaConfig.progresivoApuestaMayor.idprogresivo)}"/>  
+                                <a href="#{utilControl.protocolHostPortContext}/app-admin/apuestas/progresivo/detalle/detalle.xhtml?idprogresivo_=#{progresivoControl.obj.idprogresivo}">
+                                    <h:outputText value="#{progresivoControl.obj.nombre}"/>
+                                </a>
+                                <h:panelGroup>
+                                    <div align="right">
+                                        <h:outputText style="color:gray" value="Inactivo" rendered="#{!configControl.objApuestaConfig.progresivoApuestaMayor.activo}"/>
+                                        <h:outputText style="color:green" value="Activo" rendered="#{configControl.objApuestaConfig.progresivoApuestaMayor.activo}"/>
+                                    </div>    
+                                </h:panelGroup>
+                            </h:panelGroup>
+                        </p:panelGrid>
+
+
+                        <br/><br/>
+                        <h:panelGrid columns="2">
+
+                            <h:outputText styleClass="label" value="Tiempo animación ganador:"/>
+                            <h:outputText value="#{configControl.objApuestaConfig.tiempoAnimacionGanador} segundo(s)"/>
+
+
+                            <h:outputText styleClass="label" value="Video principal de fondo:"/>
+                            <h:panelGroup>
+                                <a href="#{configControl.objApuestaConfig.urlVideoFondo}" target="_blank">
+                                    <h:outputText value="#{configControl.objApuestaConfig.urlVideoFondo}"/>
+                                </a>
+                            </h:panelGroup>
+
+                            <h:outputText styleClass="label" value="Video de ganador:"/>
+                            <h:panelGroup>
+                                <a href="#{configControl.objApuestaConfig.urlVideoFondoGanador}" target="_blank">
+                                    <h:outputText value="#{configControl.objApuestaConfig.urlVideoFondoGanador}"/>
+                                </a>
+                            </h:panelGroup>
+
+                            <h:outputText styleClass="label" value="Probabilidad cuando el progresivo alcanza el máxmino valor:"/>
+                            <h:panelGroup>
+                                <h:outputText value="#{configControl.objApuestaConfig.probabilidadWhenMax}"/>
+                            </h:panelGroup>
+
+
+                        </h:panelGrid>
+
+
+                    </div>
+
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

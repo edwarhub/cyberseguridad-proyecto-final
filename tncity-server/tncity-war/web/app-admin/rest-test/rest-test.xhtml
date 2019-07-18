@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./_template.xhtml">
+
+            <ui:define name="app-admin.rest-test.content">
+
+                <br/><br/>
+
+                <a style="font-size: 18px;" href="javascript:void();" class="fa fa-edit" onclick="$.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/rest-test/generarllaves.xhtml', iframe: true, title: 'Generar Llaves', transition: 'fade', width: '75%', height: '95%'});">
+                    Generar Llaves...
+                </a>
+
+
+                <h:outputText value="#{configControl.setObjGeneralConfig(configControl.config(configControl.objGeneralConfig))}"/>
+
+                <br/><br/>
+                Seguridad: 
+                <h:outputText value="#{configControl.setObjRestConfig(configControl.config(configControl.objRestConfig))}"/>
+                <h:outputText value="ACTIVA" style="color:green" rendered="#{configControl.objRestConfig.securityIsActive}"/>
+                <h:outputText value="INACTIVA" style="color:red" rendered="#{!configControl.objRestConfig.securityIsActive}"/>
+                <br/>
+                <a style="font-size: 18px;" href="javascript:void();" class="fa fa-edit" onclick="$.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/rest-test/config.xhtml', iframe: true, title: 'Config', transition: 'fade', width: '75%', height: '95%'});">
+                    Editar
+                </a>
+                <br/><br/>
+                <p:separator/>
+
+                <div style="padding: 5px; border: 1px solid gray; background: #ffffcc">
+                    Ej: 
+                    <pre>
+http://localhost:8080/tncity-war/webresources/generic/graphql/
+
+query{listPerson{idpersona,nombres,apellidos,email,numdocumento}}
+query{findPerson(numdocumento:"1022"){idpersona,nombres,apellidos,email,numdocumento}}
+mutation{createPerson(numdocumento:1055,nombres:"Pedro",apellidos:"Perez",email:"pedro@gmail.com")}
+                    </pre>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="app-admin.informex.content">
+                <h:outputText value="#{seguridadControl.validaPermisoAdmin}" escape="false"/>
+
+                <h:outputText value="#{informexListControl.recuperaInforme()}"/>
+
+                <p:panelGrid columns="2" layout="grid">
+                    <h:panelGroup>
+                        <div align="right">
+                            <span class="#{informexListControl.informexReg.icon}" style="font-size: 50px;"></span>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <div align="left">
+                            <br/>
+                            <b style="font-size: 18px;color: #003366">#{informexListControl.informexReg.id}. #{informexListControl.informexReg.title}</b>
+                        </div>
+                    </h:panelGroup>
+                </p:panelGrid>
+
+                <p:separator/>
+                <br/>
+
+                <ui:insert name="app.admin.informex.permisos.content"></ui:insert>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

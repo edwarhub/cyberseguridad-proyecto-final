@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../_templateBlank.xhtml">
+
+            <ui:define name="app-admin.contentBlank">
+
+                <h:outputText value="#{configControl.setObjRestConfig(configControl.config(configControl.objRestConfig))}"/>
+
+                <p:panel header="Configurar">
+                    <div align="center">
+                        <h:form>
+
+                            <p:panelGrid columns="2">
+
+                                <h:outputText value="Activar seguridad:" styleClass="label"/>
+                                <h:panelGroup>
+                                    <h:selectBooleanCheckbox value="#{configControl.objRestConfig.securityIsActive}"/> 
+                                </h:panelGroup>
+
+
+                            </p:panelGrid>
+
+                            <br/><br/>
+                            <p:commandButton value="Guardar Cambios" ajax="false" action="#{configControl.guardar(configControl.objRestConfig)}" icon="fa fa-save">
+                            </p:commandButton>
+                            <br/><br/>
+
+                        </h:form>
+                    </div>
+                </p:panel>
+
+                <h:panelGroup rendered="#{configControl.successful}">
+                    <script type="text/javascript">
+                        parent.document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/rest-test/rest-test.xhtml';
+                    </script>
+                </h:panelGroup>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

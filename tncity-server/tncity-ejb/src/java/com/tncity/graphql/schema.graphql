@@ -1,0 +1,20 @@
+scalar DateTime
+
+type Query {    
+    ping: String,
+    listPerson:[Persona],
+    findPerson(numdocumento:String!):Persona
+}
+
+type Mutation {
+    createPerson(numdocumento:Int!,nombres:String!,apellidos:String!,email:String):String
+}
+
+type Persona{
+    idpersona: Int,
+    nombres: String,
+    apellidos: String,
+    numdocumento: Int,
+    email: String
+}
+ 

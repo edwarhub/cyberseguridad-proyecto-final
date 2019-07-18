@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="app-admin.inicio.usuario.content">
+
+                <h:outputText value="#{usuarioControl.recuperaById()}"/>
+
+                <p:panel header="Detalles de Usuario">
+                    <h:outputText value="#{usuarioControl.obj.username}" style="font-size: 20px;"/>
+                    <p:separator/>
+                    <p:menubar>
+                        <p:menuitem value="Detalle" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/detalle/detalle.xhtml?idusuario_=#{param.idusuario_}" icon="fa fa-hand-o-right" rendered="#{seguridadControl.permiso_8091}"/>
+                        <p:menuitem value="Editar" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/detalle/editar.xhtml?idusuario_=#{param.idusuario_}" icon="fa fa-pencil-square-o" rendered="#{seguridadControl.permiso_8092}"/>
+                        <p:menuitem value="Cambiar Contraseña" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/detalle/cambiarPass.xhtml?idusuario_=#{param.idusuario_}" icon="fa fa-key" rendered="#{seguridadControl.permiso_8093}" />
+                        <p:menuitem value="Perfiles" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/detalle/perfiles/perfiles-lista.xhtml?idusuario_=#{param.idusuario_}" icon="fa fa-users" rendered="#{seguridadControl.permiso_8133}"/>
+                    </p:menubar>
+                    <br/>
+                    <ui:insert name="app-admin.inicio.usuario.detalle.content"></ui:insert>
+                </p:panel>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

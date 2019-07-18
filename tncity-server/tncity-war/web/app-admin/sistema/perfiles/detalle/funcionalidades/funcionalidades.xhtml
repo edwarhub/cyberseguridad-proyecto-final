@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./_template.xhtml">
+
+            <ui:define name="app-admin.sistema.perfiles.detalle.funcionalidades.content">
+                <h:form>
+
+                    <center>
+                        <p:commandButton value="Guardar Permisos..." icon="fa fa-save"
+                                         action="#{perfilControlNegocio.guardarFuncionalidades(perfilControlNegocio.selectedNodes1)}"
+                                         update="resG_"
+                                         onstart="PF('dlgLoad').show();"
+                                         oncomplete="PF('dlgLoad').hide();PF('dlgRes').show();">
+                            <f:param name="idperfil_" value="#{param.idperfil_}"/>
+                        </p:commandButton>
+                    </center>
+
+                    <br/>
+
+                    <p:panel style="min-height: 300px;">
+                        <h:outputText value="#{perfilControlNegocio.recuperaFuncionalidadesByPerfil}"/>
+                        <h:outputText value="#{perfilControlNegocio.initTree()}"/>
+
+                        <p:tree value="#{perfilControlNegocio.root}" 
+                                selectionMode="checkbox"
+                                propagateSelectionDown="false"
+                                propagateSelectionUp="false"
+                                selection="#{perfilControlNegocio.selectedNodes1}"
+                                draggable="true" droppable="true" 
+                                var="node" 
+                                id="functionalityTree">
+
+                            <p:treeNode type="FOLDER" expandedIcon="fa fa-folder-open" collapsedIcon="fa fa-folder">
+                                <h:outputText value="#{node.name}" />
+                            </p:treeNode>
+
+                            <p:treeNode type="FUNC" icon="fa fa-file-text-o">
+                                <h:outputText value="#{node.name}" />
+                            </p:treeNode>
+
+                        </p:tree>
+                    </p:panel>
+
+                    <p:dialog header="Procesando..." widgetVar="dlgLoad" modal="true" closable="false">
+                        <div align="center">
+                            <br/><br/>
+                            <img src="#{utilControl.protocolHostPortContext}/img/loadBar.gif"/>
+                            <br/><br/>
+                            <b><i style="color:gray">Guardando cambios... Por favor espere...</i></b>
+                            <br/><br/>
+                        </div>
+                    </p:dialog>
+
+                    <h:panelGroup id="resG_">
+                        <p:dialog header="Resultado" widgetVar="dlgRes" modal="true" width="400">
+                            <div align="center">
+                                <br/><br/>
+                                <h:outputText value="#{utilControl.msg}" escape="false"/>
+                                <br/><br/>
+                                <a href="javascript:PF('dlgRes').hide();"><b>Aceptar</b></a>
+                                <br/><br/>
+                            </div>
+                        </p:dialog>
+                        <h:panelGroup rendered="#{perfilControlNegocio.successful}">
+                            <script type="text/javascript">
+                                //setTimeout("document.location.href='#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/detalle/funcionalidades/funcionalidades.xhtml?idperfil_=#{param.idperfil_}';", 500);
+                            </script>
+                        </h:panelGroup>
+                    </h:panelGroup>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

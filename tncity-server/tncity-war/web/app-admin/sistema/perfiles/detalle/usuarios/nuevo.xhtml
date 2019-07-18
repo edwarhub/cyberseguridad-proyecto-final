@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../../../_templateBlank.xhtml">
+
+            <ui:define name="app-admin.contentBlank">
+
+                <h:outputText value="#{seguridadControl.validaPermiso_8128}" escape="false"/>
+                <f:param name="idusuario_" value="#{param.idusuario_}"/>
+
+                <p:panel header="Nuevo  Perfil">
+                    <div align="center">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <h:panelGroup>
+                                    <h:outputText value="Usuario" styleClass="label"/>
+                                    <h:outputText value="*" styleClass="oblig"/>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:panelGroup>
+                                        <i style="color:gray;font-size: 11px">Usuario</i><br/>
+                                        <p:autoComplete value="#{perfilHasUsuarioControl.obj.idusuario}" id="atr_idusuario" 
+                                                        completeMethod="#{usuarioControl.autoCompleteWithMaxReg_NoLight}"  
+                                                        styleClass="autocomplete_" forceSelection="true" var="obj" 
+                                                        itemLabel="#{obj.username}" 
+                                                        itemValue="#{obj}" 
+                                                        size="40" required="true" requiredMessage="Requerido !"/>  
+                                        <p:message for="atr_idusuario"/>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                            </p:panelGrid>
+
+                            <br/><br/>
+                            <p:commandButton value="Guardar" action="#{perfilHasUsuarioControl.nuevoUsuario()}" icon="fa fa-save" ajax="false">
+                                <f:param name="idperfil_" value="#{param.idperfil_}"/>
+                            </p:commandButton>
+                            <br/><br/>
+                        </h:form>
+
+                        <h:panelGroup rendered="#{perfilHasUsuarioControl.successful}">
+                            <script type="text/javascript">
+                                parent.document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/detalle/usuarios/usuarios-lista.xhtml?idperfil_=#{perfilHasUsuarioControl.obj.idperfil.idperfil}';
+                            </script>
+                        </h:panelGroup>
+
+                    </div>
+                </p:panel>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

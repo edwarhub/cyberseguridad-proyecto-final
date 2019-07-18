@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jc="http://jc.faces/component">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="app-admin.sistema.perfiles.detalle.content">
+                <h:outputText value="#{seguridadControl.validaPermiso_8129}" escape="false"/>
+
+                <h:outputText value="#{perfilHasUsuarioControl.recuperaParams}"/>
+                <f:param name="idperfil_" value="#{param.idperfil_}"/>
+
+                <p:panel header="Lista de Usuarios">
+                    <div align="center">
+
+                        <h:outputText value="#{perfilHasUsuarioControl.recuperaCountTotalRegUsuarios()}"/>
+                        Registros Encontrados (<b>#{perfilHasUsuarioControl.totalConsulta}</b>)
+
+                        <br/>
+                        <h:panelGroup rendered="#{seguridadControl.permiso_8128}">
+                            <br/>
+                            <div align="center">
+                                <a href="javascript:void();" title="Agregar Usuario"
+                                   onclick="$(this).colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/detalle/usuarios/nuevo.xhtml?idperfil_=#{perfilHasUsuarioControl.obj.idperfil.idperfil}', width: '80%', height: '60%', iframe: true});"
+                                   class="icoAdd">[Agregar Usuario]</a>
+                            </div>
+                        </h:panelGroup>
+
+                        <jc:pagList
+                            id="0"
+                            count="#{perfilHasUsuarioControl.totalConsulta}"
+                            urlPageData="#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/detalle/usuarios/usuarios-listaPag.xhtml?idperfil_=#{param.idperfil_}"
+                            maxRegLista="#{perfilHasUsuarioControl.maxRegLista}"/>
+
+                    </div>
+                    <br/><br/>
+                </p:panel>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

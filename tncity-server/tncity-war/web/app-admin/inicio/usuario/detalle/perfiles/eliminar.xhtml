@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../../../_templateBlank.xhtml">
+
+            <ui:define name="app-admin.contentBlank">
+                <h:outputText value="#{perfilHasUsuarioControl.recuperaParams}"/>
+                <h:outputText value="#{seguridadControl.validaPermiso_8134}" escape="false"/>
+                <!-- Permiso -->
+
+
+                <h:outputText value="#{perfilHasUsuarioControl.eliminar}">
+                    <f:param name="idperfil_" value="#{param.idperfil_}"/>
+                </h:outputText> 
+
+                <h:panelGroup rendered="#{perfilHasUsuarioControl.successful}">
+                    <script>setTimeout("parent.document.location.href='#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/detalle/perfiles/perfiles-lista.xhtml?idusuario_=#{param.idusuario_}';", 500);</script>
+                </h:panelGroup>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

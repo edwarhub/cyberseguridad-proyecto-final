@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./_template.xhtml">
+
+            <ui:define name="app-admin.informex.content">
+
+                <p:panel header="Todos los Informes">
+
+                    <h:outputText value="#{informexListControl.recuperaInformexList()}"/>
+                    <p:dataGrid columns="3" layout="grid" var="inf" value="#{informexListControl.informexList.lsfInformex}" rowIndexVar="i">
+                        <p:panel style="max-height: 200px; overflow: auto;">
+
+
+                            <h:panelGroup id="content">
+                                <h:panelGrid columns="4">
+                                    <h:panelGroup rendered="#{inf.isActivo}">
+                                        <span class="#{inf.icon}" style="font-size: 25px;color: green;"></span> 
+                                        No. <b style="color: #003366;font-size: 20px;">#{inf.id}</b> &rArr;
+
+                                        <a href="#{informexListControl.urlForm(inf.id)}">
+                                            <b>#{inf.title}</b>
+                                        </a>
+                                    </h:panelGroup>
+
+                                    <h:panelGroup rendered="#{!inf.isActivo}">
+                                        <span class="#{inf.icon}" style="font-size: 25px;color: gray;"></span> 
+                                        No. <b style="color: gray;font-size: 20px;">#{inf.id}</b> &rArr;
+                                        <b style="gray">#{inf.title}</b>
+
+                                    </h:panelGroup>
+
+                                    <h:panelGroup>
+                                        <div align="right">
+                                            <p:panelGrid columns="3">
+                                                <h:panelGroup rendered="#{seguridadControl.permisoAdmin}">
+                                                    <a href="#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/lista.xhtml?idinforme_=#{inf.id}" title="Usuarios autorizados" class="fa fa-users"> <span></span> </a>
+                                                </h:panelGroup> 
+
+                                                <h:panelGroup rendered="#{inf.isActivo}">
+                                                    <a href="#{informexListControl.urlForm(inf.id)}" title="Generar Informe" class="fa fa-play"> <span></span> </a>
+                                                </h:panelGroup>
+
+                                            </p:panelGrid>
+                                        </div>
+                                    </h:panelGroup>
+                                </h:panelGrid>
+                            </h:panelGroup>
+
+
+                            <p:tooltip  for="content" position="top">
+                                <h:outputText value="#{inf.descripcion}" escape="false"/>
+                                <h:panelGroup rendered="#{!empty inf.lstCampos}">
+                                    <div ><br/>
+                                        <span style="color:gray;">Campos</span>: 
+                                        <ul>
+                                            <ui:repeat var="c" value="#{inf.lstCampos}">
+                                                <li><h:outputText value="#{c}"/></li>
+                                            </ui:repeat>
+                                        </ul>
+                                    </div>
+                                </h:panelGroup>
+                            </p:tooltip>
+
+                        </p:panel>
+                    </p:dataGrid>
+
+                    <p:panelGrid rendered="#{implementacionControl.implPro or implementacionControl.implTech}">
+                        <br/><br/>
+                        <div align="center">
+                            <a href="#{utilControl.protocolHostPortContext}/app-admin/_module/informes/indice.xhtml" style="font-size: 18px;font-weight: bold;text-decoration: underline;">Ver Otros Informes &rArr;</a>
+                        </div>
+                        <br/><br/><br/><br/>
+                    </p:panelGrid>
+
+                </p:panel>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

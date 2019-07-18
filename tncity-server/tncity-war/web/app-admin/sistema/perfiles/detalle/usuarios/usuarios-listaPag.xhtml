@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jc="http://jc.faces/component"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../../../_templateEmbed.xhtml">
+
+            <ui:define name="content.embed">
+
+                <f:param name="idusuario_" value="#{param.idusuario_}"/>
+                <h:outputText value="#{seguridadControl.validaPermiso_8129}" escape="false"/>
+                <h:outputText value="#{perfilHasUsuarioControl.recuperaAllRegPaginationNoLightUsuarios()}"/>
+
+                <br/>
+                <div>
+                    <p:dataTable reflow="true" var="lst" value="#{perfilHasUsuarioControl.lst}" tableStyle="width:auto">
+
+                        <p:column>
+                            <jc:pagColumn
+                                for="0"
+                                attributeName="usuario"
+                                attributeDisplay="Usuario"
+                                value="#{lst.idusuario.idpersona.nombres} #{lst.idusuario.idpersona.apellidos}"/>
+                        </p:column>
+
+                        <p:column headerText="Eliminar" rendered="#{seguridadControl.permiso_8130}">
+                            <div align="center">
+                                <a href="javascript:void();" 
+                                   onclick="if (confirm('¿Confirma que desea quitar la Usuario?'))
+                                               $(this).colorbox({iframe: true, href: '#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/detalle/usuarios/eliminar.xhtml?idpu_=#{lst.idpu}&amp;idperfil_=#{param.idperfil_}&amp;idusuario_=#{lst.idusuario.idusuario}', width: '40%', height: '40%'});" 
+                                   title="Quitar Parte">
+                                    <span class="icoEliminar">X</span>
+                                </a>
+                            </div>
+                        </p:column>
+
+
+                    </p:dataTable>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

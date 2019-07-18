@@ -1,0 +1,96 @@
+<!--
+@Author Edwar A. Rojas B
+edwar.red@gmail.com
+-->
+
+<functionalityTree id="0">
+	
+    <item text="tncity" id="-1">
+
+        <item text='app-admin' isadmin='true' isfirst='true' id='8070' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='app-admin' name='app-admin' ruta='/'>
+            <item text='apuestas' isadmin='true' isfirst='true' id='8101' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='apuestas' name='apuestas' ruta='/app-admin'>
+                <item text='apuestas' isadmin='true' isfirst='true' id='8102' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='apuestas' name='apuestas' ruta='/app-admin/apuestas'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8104' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/apuestas/apuestas'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8105' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/apuestas/apuestas'/>
+                    <item text='Lista Ganadores' isadmin='true' isfirst='true' id='8109' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista Ganadores' name='listaganadores' ruta='/app-admin/apuestas/apuestas'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8106' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/apuestas/apuestas'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8103' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/apuestas/apuestas'>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8107' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/apuestas/apuestas/detalle'/>
+                        <item text='Eliminar' isadmin='true' isfirst='true' id='8108' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Eliminar' name='eliminar' ruta='/app-admin/apuestas/apuestas/detalle'/>
+                    </item>
+                </item>
+                <item text='progresivo' isadmin='true' isfirst='true' id='8110' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='progresivo' name='progresivo' ruta='/app-admin/apuestas'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8112' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/apuestas/progresivo'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8113' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/apuestas/progresivo'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8114' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/apuestas/progresivo'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8111' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/apuestas/progresivo'>
+                        <item text='Lista Apuestas' isadmin='true' isfirst='true' id='8117' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista Apuestas' name='apuestas' ruta='/app-admin/apuestas/progresivo/detalle'/>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8115' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/apuestas/progresivo/detalle'/>
+                        <item text='Editar' isadmin='true' isfirst='true' id='8116' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Editar' name='editar' ruta='/app-admin/apuestas/progresivo/detalle'/>
+                    </item>
+                </item>
+            </item>
+            <item text='general' isadmin='true' isfirst='true' id='8071' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='general' name='general' ruta='/app-admin'>
+                <item text='casino' isadmin='true' isfirst='true' id='8079' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='casino' name='casino' ruta='/app-admin/general'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8081' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/general/casino'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8082' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/general/casino'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8083' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/general/casino'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8080' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/general/casino'>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8084' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/general/casino/detalle'/>
+                        <item text='Editar' isadmin='true' isfirst='true' id='8085' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Editar' name='editar' ruta='/app-admin/general/casino/detalle'/>
+                    </item>
+                </item>
+                <item text='personas' isadmin='true' isfirst='true' id='8072' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='personas' name='personas' ruta='/app-admin/general'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8074' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/general/personas'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8075' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/general/personas'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8076' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/general/personas'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8073' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/general/personas'>
+                        <item text='Apuestas' isadmin='true' isfirst='true' id='8135' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Apuestas' name='apuestas' ruta='/app-admin/general/personas/detalle'/>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8077' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/general/personas/detalle'/>
+                        <item text='Editar' isadmin='true' isfirst='true' id='8078' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Editar' name='editar' ruta='/app-admin/general/personas/detalle'/>
+                    </item>
+                </item>
+                <item text='usuario' isadmin='true' isfirst='true' id='8086' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='usuario' name='usuario' ruta='/app-admin/general'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8088' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/general/usuario'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8089' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/general/usuario'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8090' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/general/usuario'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8087' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/general/usuario'>
+                        <item text='Cambiar password' isadmin='true' isfirst='true' id='8093' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Cambiar password' name='cambiarpass' ruta='/app-admin/general/usuario/detalle'/>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8091' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/general/usuario/detalle'/>
+                        <item text='Editar' isadmin='true' isfirst='true' id='8092' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Editar' name='editar' ruta='/app-admin/general/usuario/detalle'/>
+                        <item text='casinos' isadmin='true' isfirst='true' id='8136' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='casinos' name='casinos' ruta='/app-admin/general/usuario/detalle'>
+                            <item text='Agregar' isadmin='true' isfirst='true' id='8138' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Agregar' name='agregar' ruta='/app-admin/general/usuario/detalle/casinos'/>
+                            <item text='Lista' isadmin='true' isfirst='true' id='8137' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/general/usuario/detalle/casinos'/>
+                            <item text='Quitar' isadmin='true' isfirst='true' id='8139' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Quitar' name='quitar' ruta='/app-admin/general/usuario/detalle/casinos'/>
+                        </item>
+                        <item text='perfiles' isadmin='true' isfirst='true' id='8131' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='perfiles' name='perfiles' ruta='/app-admin/general/usuario/detalle'>
+                            <item text='Agregar' isadmin='true' isfirst='true' id='8132' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Agregar' name='agregar' ruta='/app-admin/general/usuario/detalle/perfiles'/>
+                            <item text='Lista' isadmin='true' isfirst='true' id='8133' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/general/usuario/detalle/perfiles'/>
+                            <item text='Quitar' isadmin='true' isfirst='true' id='8134' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Quitar' name='quitar' ruta='/app-admin/general/usuario/detalle/perfiles'/>
+                        </item>
+                    </item>
+                </item>
+            </item>
+            <item text='sistema' isadmin='true' isfirst='true' id='8118' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='sistema' name='sistema' ruta='/app-admin'>
+                <item text='perfiles' isadmin='true' isfirst='true' id='8119' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='perfiles' name='perfiles' ruta='/app-admin/sistema'>
+                    <item text='Buscar' isadmin='true' isfirst='true' id='8121' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Buscar' name='buscar' ruta='/app-admin/sistema/perfiles'/>
+                    <item text='Lista' isadmin='true' isfirst='true' id='8122' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/sistema/perfiles'/>
+                    <item text='Nuevo' isadmin='true' isfirst='true' id='8123' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Nuevo' name='nuevo' ruta='/app-admin/sistema/perfiles'/>
+                    <item text='Detalle' isadmin='true' isfirst='true' id='8120' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='Detalle' name='detalle' ruta='/app-admin/sistema/perfiles'>
+                        <item text='Detalle' isadmin='true' isfirst='true' id='8124' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Detalle' name='detalle' ruta='/app-admin/sistema/perfiles/detalle'/>
+                        <item text='Editar' isadmin='true' isfirst='true' id='8125' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Editar' name='editar' ruta='/app-admin/sistema/perfiles/detalle'/>
+                        <item text='Eliminar' isadmin='true' isfirst='true' id='8126' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Eliminar' name='eliminar' ruta='/app-admin/sistema/perfiles/detalle'/>
+                        <item text='usuarios' isadmin='true' isfirst='true' id='8127' im0='folderClosed.gif' im1='folderOpen.gif' im2='folderClosed.gif' label='usuarios' name='usuarios' ruta='/app-admin/sistema/perfiles/detalle'>
+                            <item text='Agregar' isadmin='true' isfirst='true' id='8128' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Agregar' name='agregar' ruta='/app-admin/sistema/perfiles/detalle/usuarios'/>
+                            <item text='Lista' isadmin='true' isfirst='true' id='8129' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Lista' name='lista' ruta='/app-admin/sistema/perfiles/detalle/usuarios'/>
+                            <item text='Quitar' isadmin='true' isfirst='true' id='8130' im0='iconText.gif' im1='iconText.gif' im2='iconText.gif' label='Quitar' name='quitar' ruta='/app-admin/sistema/perfiles/detalle/usuarios'/>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </item>
+    </item>
+
+</functionalityTree> 
+
+                                    

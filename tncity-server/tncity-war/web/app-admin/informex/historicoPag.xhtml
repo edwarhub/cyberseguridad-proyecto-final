@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../_templateEmbed.xhtml">
+
+            <ui:define name="content.embed">
+
+                <h:outputText value="#{informexHistoControl.recuperaAllObj}"/>
+
+                <div align="center">
+                    <p:dataTable value="#{informexHistoControl.lst}"  reflow="true" var="inf" tableStyle="width:auto;">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('idinforme', '#{informexHistoControl.ascDesc}');">
+                                        Id. Inf</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.idinforme}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('titulo', '#{informexHistoControl.ascDesc}');">
+                                        Título</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.titulo}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('idpersona.apellidos', '#{informexHistoControl.ascDesc}');">
+                                        Usuario</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.idpersona.nombres} #{inf.idpersona.apellidos}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('ip', '#{informexHistoControl.ascDesc}');">
+                                        IP</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.ip}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('navegador', '#{informexHistoControl.ascDesc}');">
+                                        Navegador</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.navegador}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('sysOperativo', '#{informexHistoControl.ascDesc}');">
+                                        Sis. Operativo</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.sysOperativo}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('app', '#{informexHistoControl.ascDesc}');">
+                                        App</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.app}" />
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('isFinalizado', '#{informexHistoControl.ascDesc}');">
+                                        Finalizado</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText rendered="#{inf.isFinalizado}" value="SI" style="color: green;"/>
+                                <h:outputText rendered="#{!inf.isFinalizado}" value="NO" style="color: maroon;"/>
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('isCancelado', '#{informexHistoControl.ascDesc}');">
+                                        Cancelado</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText rendered="#{inf.isCancelado}" value="SI" style="color: green;"/>
+                                <h:outputText rendered="#{!inf.isCancelado}" value="NO" style="color: maroon;"/>
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column> 
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('fechaIni', '#{informexHistoControl.ascDesc}');">
+                                        Inicio</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.fechaIni}">
+                                    <f:convertDateTime pattern="dd-MMM-YYYY hh:mm a"/>
+                                </h:outputText>
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column> 
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('fechaFin', '#{informexHistoControl.ascDesc}');">
+                                        Finalización</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{inf.fechaFin}">
+                                    <f:convertDateTime pattern="dd-MMM-YYYY hh:mm a"/>
+                                </h:outputText>
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="javascript:void();" onclick="objPag_.orderBy_('log', '#{informexHistoControl.ascDesc}');">
+                                        Log</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <div style="padding: 5px;background: #333333; color: #009900;max-height: 100px; overflow-y: auto;">
+                                    <h:outputText value="#{inf.log}" />
+                                </div>
+                            </h:panelGroup>
+                        </p:column>
+
+                        <p:column> 
+                            <f:facet name="header">
+                                <h:panelGroup>
+                                    <a href="#">Tiempo</a>
+                                </h:panelGroup>
+                            </f:facet>
+                            <h:panelGroup>
+                                <h:outputText value="#{utilControl.tiempoTranscurrido2(inf.fechaIni,inf.fechaFin)}"/>
+                            </h:panelGroup>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jc="http://jc.faces/component">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="app-admin.informex.content">
+                <h:outputText value="#{informexListControl.recuperaInforme()}"/>
+
+                <p:panel header="Informe No. #{informexListControl.informexReg.id}">
+                    <div align="center">
+                        <a href="javascript:void();" onclick="document.location.href = '#{informexListControl.urlFormString(param.idinforme_)}';"><b style="font-size: 15px;">&laquo; Volver</b></a>
+                    </div>
+                    <h:panelGroup>
+                        <div align="center">
+                            <br/>
+                            <b style="font-size: 18px;color: #003366">#{informexListControl.informexReg.id}. #{informexListControl.informexReg.title}</b>
+                        </div>
+                    </h:panelGroup>
+
+                    <h:outputText value="#{informexControl.setInformexReg(informexListControl.informexReg)}"/>
+                    <jc:informexViewer key="#{utilControl.informexKeyUser()}" buildHtml="true" templateJrxml="#{informexControl.pathTemplate()}"/>
+
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

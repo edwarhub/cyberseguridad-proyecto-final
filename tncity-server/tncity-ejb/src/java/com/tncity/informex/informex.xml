@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<informexList>
+
+    <informex id="1" title="Reporte de ganadores Apuestas/Recargas" icon="fa fa-table">
+        <descripcion>
+            <![CDATA[
+                Muestra las <b>lista</b> de ganadores:<br/>
+                <ul>
+                <li>No. Documento</li>
+                <li>Nombres</li>
+                <li>Tel.</li>
+                <li>E-mail</li>
+                <li>Casino</li>
+                <li>Fecha/Premio</li>
+                <li>Id. Progresivo</li>
+                <li>Id. Apuesta</li>
+                <li>Fecha</li>
+                <li>Registró</li>
+                <li>Tipo</li>
+                <li>Valor Premio</li>
+                </ul>
+                
+            ]]>
+        </descripcion>
+    </informex>
+    
+</informexList>

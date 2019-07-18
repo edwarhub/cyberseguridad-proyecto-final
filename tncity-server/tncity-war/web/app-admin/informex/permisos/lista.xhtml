@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./_template.xhtml">
+
+            <ui:define name="app.admin.informex.permisos.content">
+                <p:panel header="Perfiles y usuarios autorizados">
+
+                    <h:outputText value="#{informexPermisoControl.recuperaAllPersonasAutorizadasObj}" />
+                    <h:outputText value="#{informexPermisoControl.recuperaAllPerfilesAutorizadasObj}" />
+
+                    <br/><br/>
+                    <div align="right">
+                        <h:panelGroup rendered="#{seguridadControl.permisoAdmin}">
+                            <a class="icoAdd"  href="javascript:void();" onclick="$.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/agregarUsuario.xhtml?idinforme_=#{param.idinforme_}', width: '40%', height: '60%', title: 'Agregar Usuario', iframe: true});">
+                                <b>[Agregar Usuario...]</b>
+                            </a>
+                        </h:panelGroup>
+                    </div>
+                    <b>USUARIOS AUTORIZADOS (#{informexPermisoControl.lstPersonAu.size()})</b>
+                    <br/>
+
+                    <center>
+                        <p:dataTable value="#{informexPermisoControl.lstPersonAu}" var="lstP" reflow="true" tableStyle="width:auto">
+
+                            <p:column headerText="Nombres">
+                                <h:outputText value="#{lstP.nombres}"/>
+                            </p:column>
+
+                            <p:column headerText="Apellidos">
+                                <h:outputText value="#{lstP.apellidos}"/>
+                            </p:column>
+
+                            <p:column headerText="Documento">
+                                <h:outputText value="#{lstP.numdocumento}"/>
+                            </p:column>
+
+                            <p:column headerText="Opciones">
+                                <h:panelGroup rendered="#{seguridadControl.permisoAdmin}">
+                                    <a class="icoEliminar"  href="javascript:void();" onclick="if (confirm('Realmente desea remover al usuario ?')) {
+                                                $.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/eliminarUsuario.xhtml?idinforme_=#{param.idinforme_}#{utilControl.charAmpersand}idpersona_=#{lstP.idpersona}', width: '40%', height: '60%', title: 'Remover Usuario', iframe: true});}">
+                                        <b>[Remover Usuario...]</b>
+                                    </a>
+                                </h:panelGroup>
+                            </p:column>
+
+
+                        </p:dataTable>
+                    </center>
+
+                    <p:separator/>
+
+
+                    <br/><br/><br/>
+                    <div align="right">
+                        <h:panelGroup rendered="#{seguridadControl.permisoAdmin}">
+                            <a class="icoAdd"  href="javascript:void();" onclick="$.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/agregarPerfil.xhtml?idinforme_=#{param.idinforme_}', width: '40%', height: '60%', title: 'Agregar Perfil', iframe: true});">
+                                <b>[Agregar Perfil...]</b>
+                            </a>
+                        </h:panelGroup>
+                    </div>
+                    <b>PERFILES AUTORIZADOS (#{informexPermisoControl.lstPerfilAu.size()})</b>
+                    <br/>
+
+                    <center>
+                        <p:dataTable value="#{informexPermisoControl.lstPerfilAu}" var="lstP" reflow="true" tableStyle="width:auto">
+
+                            <p:column headerText="Perfil">
+                                <h:outputText value="#{lstP.nombre}"/>
+                            </p:column>
+
+                            <p:column headerText="Opciones">
+                                <h:panelGroup rendered="#{seguridadControl.permisoAdmin}">
+                                    <a class="icoEliminar"  href="javascript:void();" onclick="if (confirm('Realmente desea remover el perfil ?')) {
+                                                $.colorbox({href: '#{utilControl.protocolHostPortContext}/app-admin/informex/permisos/eliminarPerfil.xhtml?idinforme_=#{param.idinforme_}#{utilControl.charAmpersand}idperfil_=#{lstP.idperfil}', width: '40%', height: '60%', title: 'Remover Perfil', iframe: true});
+                                                        }">
+                                        <b>[Remover Perfil...]</b>
+                                    </a>
+                                </h:panelGroup>
+                            </p:column>
+
+
+                        </p:dataTable>
+                    </center>
+
+                    <p:separator/>
+
+
+                    <br/><br/><br/><br/><br/><br/>
+
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

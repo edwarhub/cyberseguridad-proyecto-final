@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+
+
+        <title>jCLUB - Administrador de Casinos</title>
+        <link rel="shortcut icon" href="#{utilControl.protocolHostPortContext}/img/app/logo3.png"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="#{utilControl.protocolHostPortContext}/css/baseCSS.css"/>
+
+        <h:outputScript name="js/ripple.js" library="ultima-layout" />
+        <h:outputScript name="js/layout.js" library="ultima-layout" />
+
+        <style type="text/css">
+            .login-body {
+                background: url("#{utilControl.protocolHostPortPath}/img/app/bannerLogin.jpg") top left no-repeat #f7f7f7;
+                background-size: 100% auto; }
+            </style>
+        </h:head>
+
+        <h:body styleClass="login-body">
+
+        <h:form>
+            <div class="card login-panel ui-fluid" style="background: rgba(255,255,255, 0.75); padding: 5px;">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <img src="#{utilControl.protocolHostPortPath}/img/app/logo.png" height="150"/>
+                    </div>
+                    <div class="ui-g-12">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText id="usN_" value="#{loginAdminControl.userName}" rendered="true" requiredMessage="Requerido!"/>
+                            <p:message for="usN_"/>
+                            <label>Usuario</label>
+                        </h:panelGroup>
+                    </div>
+                    <div class="ui-g-12">
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:password id="usP_" value="#{loginAdminControl.password}" rendered="true" requiredMessage="Requerido!"/>
+                            <p:message for="usP_"/>
+                            <label><h:outputText value="Contraseña"/></label>
+                        </h:panelGroup>
+                    </div>
+                    <div class="ui-g-12">
+                        <h:outputText value="#{utilControl.msg}" escape="false"/>
+                        <p:commandButton ajax="false" action="#{loginAdminControl.validaIngreso()}" value="Ingresar" icon="ui-icon-person" />
+                    </div>
+                </div>
+                
+                <br/>
+               <ui:include src="./footer.xhtml" />
+                
+            </div>
+        </h:form>
+
+        <h:panelGroup rendered="#{loginAdminControl.successful}">
+            <script type="text/javascript">
+                document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/home.xhtml';
+            </script>
+        </h:panelGroup>
+
+
+
+        <br/><br/><br/>
+        
+
+        <h:outputStylesheet name="css/ripple.css" library="ultima-layout" />
+        <h:outputStylesheet name="css/layout-#{themeControl.theme}.css" library="ultima-layout" />
+    </h:body>
+
+</html>

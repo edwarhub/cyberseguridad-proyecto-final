@@ -1,0 +1,61 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pu="http://primefaces.org/ultima">
+
+    <h:form id="menuform"> 
+
+        <div class="layout-menu #{themeControl.menuClass}">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <ui:fragment rendered="#{themeControl.profileMode == 'inline' and themeControl.menuLayout != 'menu-layout-static menu-layout-horizontal'}">
+                        <div class="profile">
+                            <div class="profile-image"></div>
+                            <a id="profile-options" href="#">
+                                <span class="profile-name">#{loginAdminControl.usLog.idpersona.nombres}</span>
+                                <i class="material-icons">&#xE313;</i>
+                            </a>
+                        </div>
+
+                        <ul id="profile-menu" class="ultima-menu">
+                            <li role="menuitem">
+                                <a href="#" class="ripplelink">
+                                    <a href="#{utilControl.protocolHostPortContext}/app-admin/perfil.xhtml">
+                                        <i class="material-icons">&#xE7FD;</i>
+                                        <span>Perfil</span>
+                                    </a>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#" class="ripplelink">
+                                    <a href="#{utilControl.protocolHostPortContext}/app-admin/cambiarPass.xhtml">
+                                        <i class="material-icons">&#xE32A;</i>
+                                        <span>Cambiar Contraseña</span>
+                                    </a>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#{utilControl.protocolHostPortContext}/app-admin/logout.xhtml" class="ripplelink">
+                                    <i class="material-icons">&#xE8AC;</i>
+                                    <span>Salir</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </ui:fragment>
+
+                    <pu:menu widgetVar="me">
+                        <p:menuitem value="Dashboard" ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/home.xhtml';" icon="home"/>
+                        <p:menuitem value="Inicio" rendered="#{seguridadControl.permiso_8075}" icon="&#xE871;"  ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/inicio/personas/lista.xhtml';"/>
+                        <p:menuitem value="Test Rest" rendered="#{seguridadControl.permisoAdmin}" icon="cloud_queue" ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/rest-test/rest-test.xhtml';"/>
+                        <p:menuitem value="Sistema" rendered="#{seguridadControl.permisoAdmin}" icon="airplay" ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/sistema/perfiles/lista.xhtml';"/>
+                        <p:menuitem value="Configuración" rendered="#{seguridadControl.permisoAdmin}" icon="build" ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/config/config.xhtml';"/>
+                        <p:menuitem value="Informes" icon="pie_chart" ajax="true" onclick="document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/informex/indice.xhtml';"/>
+                    </pu:menu>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</ui:composition>

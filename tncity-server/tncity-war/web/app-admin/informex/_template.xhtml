@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../_template.xhtml">
+
+            <ui:define name="head">
+
+            </ui:define>
+
+            <ui:define name="app-admin.content">
+                <ui:insert name="app-admin.informex.content"></ui:insert>
+            </ui:define>
+
+            <ui:define name="app-admin.menu">
+                <h:form>
+                    <p:menu style="width: 98%">
+                        <p:submenu label="Informes">
+                            <p:menuitem value="Lista Completa" icon="fa fa-list-ol"
+                                        url="#{utilControl.protocolHostPortContext}/app-admin/informex/indice.xhtml"/>
+                            <p:menuitem value="Últimos Inf. Generados" icon="fa fa-clock-o"
+                                        url="#{utilControl.protocolHostPortContext}/app-admin/informex/ultimosInformes.xhtml"/>
+                            <p:menuitem value="Registros históricos" icon="fa fa-database" rendered="#{seguridadControl.permisoAdmin}"
+                                        url="#{utilControl.protocolHostPortContext}/app-admin/informex/historico.xhtml"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

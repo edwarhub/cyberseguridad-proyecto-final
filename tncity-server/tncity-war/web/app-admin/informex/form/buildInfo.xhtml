@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jc="http://jc.faces/component">
+
+    <body>
+
+        <ui:composition template="./_template.xhtml">
+
+            <ui:define name="app.admin.informex.form.content">
+                <div align="center">
+                    <jc:informexBuild key="#{utilControl.informexKeyUser()}" 
+                                      informexObj="#{informexControl.informexByKey(utilControl.informexKeyUser())}"
+                                      oncomplete="redirInfo()"
+                                      autostart="false"/>
+                </div>
+
+                <script type="text/javascript">
+                    function redirInfo() {
+                        document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/informex/form/viewInfo.xhtml?idinforme_=#{param.idinforme_}';
+                            }
+                </script>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

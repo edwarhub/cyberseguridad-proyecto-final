@@ -1,0 +1,95 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="_template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#FFC107', '#03A9F4'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#EEEEEE',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#212121'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>  
+        </script>
+        <style type="text/css">
+            .main-content {
+                padding: 0;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="app-admin.content">
+        <div class="ui-g dashboard" style="min-height: 400px;">
+            <div class="ui-g-12 ui-md-8">
+                <b style="color: #003366; font-size: 17px;"><h:outputText value="Cambiar Contraseña"/></b>
+
+                <div align="center">
+
+                    <p:panel>
+                        <h:form>
+                            <p:panelGrid columns="2">
+
+                                <h:outputText value="Nueva Contraseña:"/>
+                                <h:panelGroup>
+                                    <p:password value="#{usuarioControl.pass1}" feedback="true" id="p1" required="true" requiredMessage="Requerido!"/>
+                                    <p:message for="p1"/>
+                                </h:panelGroup>
+
+                                <h:outputText value="Confirmar:"/>
+                                <h:panelGroup>
+                                    <p:password value="#{usuarioControl.pass2}" feedback="true" id="p2" required="true" requiredMessage="Requerido!"/>
+                                    <p:message for="p2"/>
+                                </h:panelGroup>
+
+
+                            </p:panelGrid>
+
+                            <br/><br/>
+                            <p:commandButton value="Cambiar Contraseña" icon="fa fa-key" ajax="false" action="#{usuarioControl.cambiarPassCurrentUser()}">
+                                <f:param name="idusuario_" value="#{param.idusuario_}"/>
+                            </p:commandButton>
+
+                            <br/><br/>
+                        </h:form>
+
+                        <h:panelGroup rendered="#{usuarioControl.successful}">
+                            <script type="text/javascript">
+                                document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/cambiarPass.xhtml';
+                            </script>
+                        </h:panelGroup>
+                    </p:panel>
+
+                </div>
+
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

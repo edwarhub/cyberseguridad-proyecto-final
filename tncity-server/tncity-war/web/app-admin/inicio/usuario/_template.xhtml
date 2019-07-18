@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <body>
+        
+        <ui:composition template="./../_template.xhtml">
+            
+            <ui:define name="app-admin.inicio.content">
+                 <span class="fa fa-user-o" style="font-size: 25px;"> Usuarios</span>
+                <p:separator/>
+                <p:menubar>
+                    <p:menuitem value="Nuevo" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/nuevo.xhtml" icon="fa fa-plus-circle" rendered="#{seguridadControl.permiso_8090}" />
+                    <p:menuitem value="Lista" url="#{utilControl.protocolHostPortContext}/app-admin/inicio/usuario/lista.xhtml" icon="fa fa-list-ul" rendered="#{seguridadControl.permiso_8089}"/>
+                </p:menubar>
+                <br/>
+                <ui:insert name="app-admin.inicio.usuario.content"></ui:insert>
+            </ui:define>
+
+        </ui:composition>
+        
+    </body>
+</html>

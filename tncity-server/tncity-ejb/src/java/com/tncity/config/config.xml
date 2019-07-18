@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <param id="1" classPojo="com.tncity.config.pojoaux.ApuestaConfig"></param>
+    <param id="2" classPojo="com.tncity.config.pojoaux.GeneralConfig"></param>
+    <param id="3" classPojo="com.tncity.config.pojoaux.RestConfig"></param>
+</config>

@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../_templateBlank.xhtml">
+
+            <ui:define name="app-admin.contentBlank">
+
+                <h:outputText value="#{configControl.setObjApuestaConfig(configControl.config(configControl.objApuestaConfig))}"/>
+
+                <p:panel header="Configurar">
+                    <div align="center">
+                        <h:form>
+
+                            <b>Progresivos de RECARGA</b>
+                            <p:separator/>
+                            <p:panelGrid columns="2">
+
+                                <h:outputText value="Menor:" styleClass="label"/>
+                                <h:panelGroup>
+                                    <p:panelGrid columns="4">
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Acumulado: " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMenor.tasaAcumulado}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Oculta " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMenor.tasaOcultaInicio}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Activo: " style="color:gray;"/><br/>
+                                                <h:selectBooleanCheckbox value="#{configControl.objApuestaConfig.progresivoRecargaMenor.activo}"/>
+                                            </div>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoRecargaMenor.idprogresivo}"/>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoRecargaMenor.acumuladoOcultoInicio}"/>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Probabilidad " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMenor.probabilidad}" size="3"/>
+                                            </div>
+                                            (Ganador: <h:outputText value="#{configControl.objApuestaConfig.progresivoRecargaMenor.ganador}"/>)
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim.Inferior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMenor.minimo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim. Superior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMenor.maximo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Apuesta Min.: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMenor.apuestaMinima}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <h:outputText value="V/Oculto Anterior" style="color:gray;"/><br/>
+                                            <div align="right">
+                                                $<h:outputText value="#{configControl.objApuestaConfig.progresivoRecargaMenor.acumuladoOcultoInicio}">
+                                                    <f:convertNumber type="currency" currencySymbol=""/>
+                                                </h:outputText>
+                                            </div>
+                                        </h:panelGroup>
+
+                                    </p:panelGrid>
+                                </h:panelGroup>
+
+                                <h:outputText value="Mayor:" styleClass="label"/>
+                                <h:panelGroup>
+                                    <p:panelGrid columns="4">
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Acumulado: " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMayor.tasaAcumulado}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Oculta " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMayor.tasaOcultaInicio}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Activo: " style="color:gray;"/><br/>
+                                                <h:selectBooleanCheckbox value="#{configControl.objApuestaConfig.progresivoRecargaMayor.activo}"/>
+                                            </div>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoRecargaMayor.idprogresivo}"/>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoRecargaMayor.acumuladoOcultoInicio}"/>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Probabilidad " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoRecargaMayor.probabilidad}" size="3"/>
+                                            </div>
+                                            (Ganador: <h:outputText value="#{configControl.objApuestaConfig.progresivoRecargaMayor.ganador}"/>)
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim.Inferior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMayor.minimo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim. Superior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMayor.maximo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Apuesta Min.: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoRecargaMayor.apuestaMinima}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <h:outputText value="V/Oculto Anterior" style="color:gray;"/><br/>
+                                            <div align="right">
+                                                $<h:outputText value="#{configControl.objApuestaConfig.progresivoRecargaMayor.acumuladoOcultoInicio}">
+                                                    <f:convertNumber type="currency" currencySymbol=""/>
+                                                </h:outputText>
+                                            </div>
+                                        </h:panelGroup>
+
+                                    </p:panelGrid>
+                                </h:panelGroup>
+
+                            </p:panelGrid>
+
+                            <br/>
+                            <b>Progresivos de APUESTA</b>
+                            <p:separator/>
+                            <p:panelGrid columns="2">
+
+                                <h:outputText value="Menor:" styleClass="label"/>
+                                <h:panelGroup>
+                                    <p:panelGrid columns="4">
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Acumulado: " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMenor.tasaAcumulado}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Oculta: " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMenor.tasaOcultaInicio}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Activo: " style="color:gray;"/><br/>
+                                                <h:selectBooleanCheckbox value="#{configControl.objApuestaConfig.progresivoApuestaMenor.activo}"/>
+                                            </div>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoApuestaMenor.idprogresivo}"/>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoApuestaMenor.acumuladoOcultoInicio}"/>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Probabilidad " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMenor.probabilidad}" size="3"/>
+                                            </div>
+                                            (Ganador: <h:outputText value="#{configControl.objApuestaConfig.progresivoApuestaMenor.ganador}"/>)
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim.Inferior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMenor.minimo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim. Superior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMenor.maximo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Apuesta Min.: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMenor.apuestaMinima}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <h:outputText value="V/Oculto Anterior" style="color:gray;"/><br/>
+                                            <div align="right">
+                                                $<h:outputText value="#{configControl.objApuestaConfig.progresivoApuestaMenor.acumuladoOcultoInicio}">
+                                                    <f:convertNumber type="currency" currencySymbol=""/>
+                                                </h:outputText>
+                                            </div>
+                                        </h:panelGroup>
+
+                                    </p:panelGrid>
+                                </h:panelGroup>
+
+                                <h:outputText value="Mayor:" styleClass="label"/>
+                                <h:panelGroup>
+                                    <p:panelGrid columns="4">
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Acumulado: " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMayor.tasaAcumulado}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Tasa/Oculta " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMayor.tasaOcultaInicio}" size="3"/>%
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Activo: " style="color:gray;"/><br/>
+                                                <h:selectBooleanCheckbox value="#{configControl.objApuestaConfig.progresivoApuestaMayor.activo}"/>
+                                            </div>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoApuestaMayor.idprogresivo}"/>
+                                            <h:inputHidden value="#{configControl.objApuestaConfig.progresivoApuestaMayor.acumuladoOcultoInicio}"/>
+                                        </h:panelGroup>
+
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Probabilidad " style="color:gray;"/><br/>
+                                                <h:inputText value="#{configControl.objApuestaConfig.progresivoApuestaMayor.probabilidad}" size="3"/>
+                                            </div>
+                                            (Ganador: <h:outputText value="#{configControl.objApuestaConfig.progresivoApuestaMayor.ganador}"/>)
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim.Inferior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMayor.minimo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Lim. Superior: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMayor.maximo}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <div align="center">
+                                                <h:outputText value="Apuesta Min.: " style="color:gray;"/><br/>
+                                                $<p:inputNumber value="#{configControl.objApuestaConfig.progresivoApuestaMayor.apuestaMinima}" size="9"/>
+                                            </div>
+                                        </h:panelGroup>
+
+                                        <h:panelGroup>
+                                            <h:outputText value="V/Oculto Anterior" style="color:gray;"/><br/>
+                                            <div align="right">
+                                                $<h:outputText value="#{configControl.objApuestaConfig.progresivoApuestaMayor.acumuladoOcultoInicio}">
+                                                    <f:convertNumber type="currency" currencySymbol=""/>
+                                                </h:outputText>
+                                            </div>
+                                        </h:panelGroup>
+
+                                    </p:panelGrid>
+                                </h:panelGroup>
+
+                                <h:outputText value="Tiempo animación ganador:"/>
+                                <h:panelGroup>
+                                    <h:inputText value="#{configControl.objApuestaConfig.tiempoAnimacionGanador}" required="true" requiredMessage="Requerido!" size="4"/> segundo(s)
+                                </h:panelGroup>
+
+                                <h:outputText value="URL video principal de fondo:"/>
+                                <h:panelGroup>
+                                    <h:inputText value="#{configControl.objApuestaConfig.urlVideoFondo}" required="false" requiredMessage="Requerido!" size="35"/> 
+                                </h:panelGroup>
+
+                                <h:outputText value="URL video de ganador:"/>
+                                <h:panelGroup>
+                                    <h:inputText value="#{configControl.objApuestaConfig.urlVideoFondoGanador}" required="false" requiredMessage="Requerido!" size="35"/> 
+                                </h:panelGroup>
+
+                                <h:outputText styleClass="label" value="Probabilidad cuando el progresivo alcanza el máxmino valor:"/>
+                                <h:panelGroup>
+                                    <h:inputText value="#{configControl.objApuestaConfig.probabilidadWhenMax}" required="true" requiredMessage="Requerido!" size="3"/> 
+                                </h:panelGroup>
+
+                            </p:panelGrid>
+
+                            <br/><br/>
+                            <p:commandButton value="Guardar Cambios" ajax="false" action="#{progresivoControl.guardarConfiguracion(configControl.objApuestaConfig)}" icon="fa fa-save">
+                            </p:commandButton>
+                            <br/><br/>
+
+                        </h:form>
+                    </div>
+                </p:panel>
+
+                <h:panelGroup rendered="#{progresivoControl.successful}">
+                    <script type="text/javascript">
+                        parent.document.location.href = '#{utilControl.protocolHostPortContext}/app-admin/config/apuestas/index.xhtml';
+                    </script>
+                </h:panelGroup>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
